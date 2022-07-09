@@ -1,9 +1,12 @@
 module GdbSpec where
 
 import Test.Hspec
+import Gdb
 
 spec :: SpecWith ()
 spec = do
-    describe "dummy" $ do
-        it "should show the presence of a test harness" $ do
-            2+2 `shouldBe` 4
+    describe "complete gossip sharing" $ do
+        describe "with only one route" $ do
+            it "should be done at minute 1" $do
+                let routes = [[42, 17, 23]]
+                complete routes `shouldBe` 1

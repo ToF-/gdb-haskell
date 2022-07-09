@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      Gdb
       Lib
   other-modules:
       Paths_gdb_haskell
