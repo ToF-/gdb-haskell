@@ -24,5 +24,8 @@ spec = do
                     let routes = [[42,23,12]
                                  ,[17,42]]
                     complete routes `shouldBe` "4"
+                    let routes = [[23,17]
+                                 ,[42,17]]
+                    complete routes `shouldBe` "2"
 
 

@@ -10,7 +10,13 @@ complete routes = case complete_gossips routes of
                     Nothing -> "never"
 
 complete_gossips :: [Route] -> Maybe Int
-complete_gossips [[42],[17]] = Nothing 
-complete_gossips [[42,23,12],[17,42]] = Just 3
-complete_gossips _ = Just 0
+complete_gossips [r,s] = first_common_stop 0 [cycle r, cycle s]
+complete_gossips [r] = Just 0
+complete_gossips _ = Nothing
+
+first_common_stop :: Int -> [Route] -> Maybe Int
+first_common_stop 480 _ = Nothing
+first_common_stop n [s:ss,t:ts] | s == t = Just n
+                                | otherwise = first_common_stop (succ n) [ss,ts]
+                                  
 
