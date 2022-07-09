@@ -19,3 +19,10 @@ spec = do
                                  ,[17]]
                     complete routes `shouldBe` "never"
 
+            describe "with a common stop after a while" $ do
+                it "should be at first minute of meeting" $ do
+                    let routes = [[42,23,12]
+                                 ,[17,42]]
+                    complete routes `shouldBe` "4"
+
+
